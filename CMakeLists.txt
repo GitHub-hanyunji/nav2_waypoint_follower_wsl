@@ -15,6 +15,7 @@ find_package(tf2 REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 
 add_executable(waypoint_publisher src/waypoint_publisher.cpp)
+add_executable(singlePoint_publisher src/singlePoint_publisher.cpp)
 
 ament_target_dependencies(waypoint_publisher
   rclcpp
@@ -25,8 +26,19 @@ ament_target_dependencies(waypoint_publisher
   tf2_geometry_msgs
 )
 
+
+ament_target_dependencies(singlePoint_publisher
+  rclcpp
+  rclcpp_action
+  geometry_msgs
+  nav2_msgs
+  tf2
+  tf2_geometry_msgs
+)
+
 install(TARGETS
   waypoint_publisher
+  singlePoint_publisher
   DESTINATION lib/${PROJECT_NAME}
 )
 
